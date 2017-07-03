@@ -55,6 +55,7 @@ def login():
     password = request.form['pwd']
     if is_registered(email):
         if is_authenticated(email, password):
+            # Log the user in
             session['logged_in'] = True
             session['user'] = User.query.filter_by(email=email).first().name
             return redirect(url_for('index'))
@@ -70,7 +71,7 @@ def login():
 def register():
     if request.method == 'POST':
         try:
-
+            # recaptcha thing here
             response = post("https://www.google.com/recaptcha/api/siteverify",
                             data={
                                 "secret": data['recaptc'],
@@ -82,8 +83,8 @@ def register():
 
         if response and response.json()['success']:
 
-            # Get user stuff
-            print "YOU PASSED BRO"
+            # Get user stuff when recaptca success
+
             username = request.form['usr']
             password = request.form['pwd']
             email = request.form['email']
@@ -112,4 +113,3 @@ def logout():
     session.pop('logged_in', None)
     session.pop('user', None)
     return redirect(url_for('index'))
-
