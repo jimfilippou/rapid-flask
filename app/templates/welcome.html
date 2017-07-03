@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <style>
+        @import url(https://fonts.googleapis.com/css?family=Raleway:300);
+
+        body {
+            background-color: #000;
+            font-family: "Raleway", sans-serif;
+            overflow-x: hidden;
+        }
+
+        h1, p {
+            color: white;
+        }
+
+        a {
+            text-decoration: none !important;
+            -webkit-transition: -webkit-all .8s ease-in-out;
+            transition: all .5s ease-in-out;
+        }
+
+        #nav_link {
+            color: white;
+            outline: none;
+            font-family: "Raleway", sans-serif;
+            background: transparent;
+            border-radius: 0;
+            -webkit-transition: all ease-in-out .3s;
+            -moz-transition: all ease-in-out .3s;
+            -ms-transition: all ease-in-out .3s;
+            -o-transition: all ease-in-out .3s;
+            transition: all ease-in-out .3s;
+        }
+
+        #nav_link:hover {
+            color: black;
+            background-color: white;
+
+        }
+
+        #scroller {
+            position: absolute;
+            top: calc(100% - 80px);
+            width: 30px;
+            left: calc(100% - 80px);
+        }
+
+        .hero {
+            width: 100%;
+            height: 100vh;
+            position: relative;
+            overflow: hidden;
+            color: #FFF;
+            text-align: center;
+            background-image: url({{ url_for('static', filename="img/Untitled-1.png") }});
+            background-size: cover;
+
+        }
+
+        .what {
+            margin-top: -20px;
+            height: 300px;
+            background-color: black;
+            text-align: center;
+        }
+
+        #header_text {
+            position: absolute;
+            left: 34px;
+            top: 100px;
+            color: white;
+            z-index: 2;
+            font-family: "Raleway", "Helvetica Neue", Helvetica, Arial, sans-serif;
+        }
+
+        #pretty_ul {
+            background: none;
+            position: absolute;
+            outline: none;
+            top: 51px;
+            right: -70px;
+            box-shadow: none;
+        }
+
+        #footer_text {
+            margin: 0;
+            color: #9b9b9b;
+            font-family: 'Raleway', sans-serif;
+            line-height: 1.2;
+            padding: 15px;
+            position: relative;
+            right: 10px;
+        }
+
+        p {
+            color: #000;
+        }
+
+    </style>
+    <link rel="stylesheet" href="{{ url_for('static', filename="css/animate.css") }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename="css/slider.css") }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename="css/bootstrap.css") }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename="css/aos.css") }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename="css/dropdown.css") }}">
+
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<nav class="navbar navbar-default" style="position:absolute;z-index: 1;border-radius: 0;width: 100%;background: none;border: none;padding-left: 20px; padding-right: 20px; padding-top: 15px; ">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" style="color: white;font-family: 'Raleway', sans-serif" href="#">Soundlight</a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+            <ul class="nav navbar-nav">
+                <li><a id="nav_link" href="#">Home</a></li>
+                <li><a id="nav_link" href="#">About</a></li>
+                <li><a id="nav_link" href="#">Contact</a></li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+                <li><a style="outline-offset: -1px;outline: 1px solid white" id="nav_link" href="#">Watch Video</a></li>
+                {% if session['logged_in'] %}
+                    <li><a id="nav_link" href="{{ url_for('auth.logout') }}">Log out</a></li>
+                    <li class="dropdown">
+                        <a id="nav_link" class="dropdown-toggle" data-toggle="dropdown" href="#">{{ session['user'] }}
+                            <span class="caret"></span></a>
+                        <ul id="pretty_ul" class="dropdown-menu">
+                            <li><a style="color: white;background-color: transparent;font-family: 'Raleway', sans-serif;outline: none" href="#">Settings</a></li>
+                        </ul>
+                    </li>
+                {% else %}
+                    <li><a id="nav_link" href="{{ url_for('auth.authentication') }}">Log in</a></li>
+                    <li><a id="nav_link" href="{{ url_for('auth.authentication') }}?toggle">Sign up</a></li>
+                {% endif %}
+
+            </ul>
+        </div><!--/.nav-collapse -->
+    </div><!--/.container-fluid -->
+</nav>
+
+<div id="header_text" data-aos="fade-right">
+    <h2>Header </h2>
+    <p>Some p</p>
+</div>
+
+<header class="hero">
+
+</header>
+
+<header>
+
+    {% if session['logged_in'] %}
+        <div class="jumbotron" style="font-family: 'Raleway', sans-serif;margin-top: 30px;background-color: white;" align="center">
+            <div class="row" id="services">
+                <div class="col-sm-4 " data-aos="fade-right">
+                    <img style="height: 100px;width: 100px;opacity: 0.8" src="{{ url_for('static', filename="img/package.svg") }}"/>
+                    <h3>Product 1</h3>
+                    <p>Product 1 Description!. </p>
+                    <a class="btn btn-default" style="outline-offset: -1px;outline: 1px solid black" href="#">Buy now!</a>
+                </div>
+
+                <div class="col-sm-4 " data-aos="fade-in">
+                    <img style="height: 100px;width: 100px;opacity: 0.8" src="{{ url_for('static', filename="img/package.svg") }}"/>
+                    <h3>Product 2</h3>
+                    <p>Product 2 Description!. </p>
+                    <a class="btn btn-default" style="outline-offset: -1px;outline: 1px solid black" href="#">Buy now!</a>
+                </div>
+
+                <div class="col-sm-4 " data-aos="fade-left">
+                    <img style="height: 100px;width: 100px;opacity: 0.8" src="{{ url_for('static', filename="img/package.svg") }}"/>
+                    <h3>Product 3</h3>
+                    <p>Product 3 Description!. </p>
+                    <a class="btn btn-default" style="outline-offset: -1px;outline: 1px solid black" href="#">Buy now!</a>
+                </div>
+            </div>
+        </div>
+    {% else %}
+        <div class="jumbotron" style="font-family: 'Raleway', sans-serif;margin-top: 30px;background-color: white;" align="center">
+            <div class="row" id="services">
+                <div class="col-sm-4 " data-aos="fade-right">
+                    <img style="height: 100px;width: 100px;opacity: 0.8" src="{{ url_for('static', filename="img/activity.svg") }}"/>
+                    <h3>Fluctuation!</h3>
+                    <p>Watch your screen in real time auto adjusting to your leds!. </p>
+                    <a class="btn btn-default" style="outline-offset: -1px;outline: 1px solid black" href="#">Watch Video</a>
+                </div>
+
+                <div class="col-sm-4 " data-aos="fade-in">
+                    <img style="height: 100px;width: 100px;opacity: 0.8" src="{{ url_for('static', filename="img/airplay.svg") }}"/>
+                    <h3>Installation!</h3>
+                    <p>Follow the guide for a dead simple installation within 5 steps!</p>
+                    <a class="btn btn-default" style="outline-offset: -1px;outline: 1px solid black" href="#">Watch Video</a>
+                </div>
+
+                <div class="col-sm-4 " data-aos="fade-left">
+                    <img style="height: 100px;width: 100px;opacity: 0.8" src="{{ url_for('static', filename="img/check-circle.svg") }}"/>
+                    <h3>Sustainability!</h3>
+                    <p>Soundlight is durable , water and dust resistant! </p>
+                    <a class="btn btn-default" style="outline-offset: -1px;outline: 1px solid black" href="#">Watch Video</a>
+                </div>
+            </div>
+        </div>
+
+    {% endif %}
+
+</header>
+
+<div class="jumbotron" style="font-family: 'Raleway', sans-serif;margin-top: 0px;background-color: #f3f3f3;margin-bottom: 0" align="center">
+    <div class="row" align="center">
+        <h2 style="font-weight: lighter;margin-top: 0;margin-bottom: 0">How it looks...</h2>
+    </div>
+</div>
+
+<div class="slider" id="slider">
+
+    <div class="slItems">
+
+        <div class="slItem" style="background-image: url('{{ url_for('static', filename="img/19238579_1764836623556679_214605968_o.jpg") }}');">
+
+            <div class="slText">
+
+
+            </div>
+
+        </div>
+
+        <div class="slItem" style="background-image: url('{{ url_for('static', filename="img/19402352_1764836713556670_1017931163_o.jpg") }}');">
+
+            <div class="slText">
+
+
+            </div>
+
+        </div>
+
+        <div class="slItem" style="background-image: url('{{ url_for('static', filename="img/19400829_1764836676890007_582059502_o.jpg") }}');">
+
+            <div class="slText">
+
+
+            </div>
+
+        </div>
+
+    </div>
+</div>
+
+<img id="scroller" src="{{ url_for('static', filename="img/scrolldown.gif") }}">
+
+<footer style="background-color: black">
+    <h5 id="footer_text">&nbsp;&nbsp; SoundLight @ 2017 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Payments are processed securely by STRIPE</h5>
+</footer>
+
+<script src="{{ url_for('static', filename="js/jquery.js") }}"></script>
+<script src="{{ url_for('static', filename="js/slider/slider.js") }}"></script>
+<script src="{{ url_for('static', filename="js/slider/slider_init.js") }}"></script>
+<script src="{{ url_for('static', filename="js/bootstrap.js") }}"></script>
+<script src="{{ url_for('static', filename="js/aos/aos.js") }}"></script>
+<script src="{{ url_for('static', filename="js/aos/aos_init.js") }}"></script>
+
+</body>
+</html>
