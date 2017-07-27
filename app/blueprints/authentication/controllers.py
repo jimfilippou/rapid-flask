@@ -6,7 +6,7 @@ from flask import Blueprint, request, render_template, \
 from app import db
 
 # Import module models (i.e. User)
-from app.blueprints.authentication.models import User
+from app.models import User
 
 # Import tools
 from app.blueprints.tools.db import is_authenticated, is_registered, add_user_to_database
