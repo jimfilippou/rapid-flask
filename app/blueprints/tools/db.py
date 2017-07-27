@@ -24,6 +24,5 @@ def add_user_to_database(username, password, email, role, status):
         )
         db.session.add(user)
         db.session.commit()
-    except Exception as manager_rugby:
-        print manager_rugby.message
+    except:
         db.session.rollback()
