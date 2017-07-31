@@ -1,27 +1,34 @@
+"""
+Configuration of the app , don't mess with theese unless you know what you are doing
+"""
+
 import os
 
-DEBUG = True
 
-BASE_DIR = os.path.abspath(os.path.dirname(__file__))
+# default config
+class BaseConfig(object):
+    DEBUG = False
+    SECRET_KEY = '\xbf\xb0\x11\xb1\xcd\xf9\xba\x8bp\x0c...'
+    BASE_DIR = os.path.abspath(os.path.dirname(__file__))
+    SQLALCHEMY_DATABASE_URI = 'sqlite:///' + os.path.join(BASE_DIR, 'app.db')
+    SQLALCHEMY_TRACK_MODIFICATIONS = True
+    DATABASE_CONNECT_OPTIONS = {}
+    THREADS_PER_PAGE = 2
+    CSRF_ENABLED = True
+    CSRF_SESSION_KEY = "secret"
 
-SQLALCHEMY_DATABASE_URI = 'sqlite:///' + os.path.join(BASE_DIR, 'app.db')
 
-SQLALCHEMY_TRACK_MODIFICATIONS = True
 
-DATABASE_CONNECT_OPTIONS = {}
+class TestConfig(BaseConfig):
+    DEBUG = True
+    TESTING = True
+    WTF_CSRF_ENABLED = False
+    SQLALCHEMY_DATABASE_URI = 'sqlite:///:memory:'
 
-# Application threads. A common general assumption is
-# using 2 per available processor cores - to handle
-# incoming requests using one and performing background
-# operations using the other.
-THREADS_PER_PAGE = 2
 
-# Enable protection agains *Cross-site Request Forgery (CSRF)*
-CSRF_ENABLED = True
+class DevelopmentConfig(BaseConfig):
+    DEBUG = True
 
-# Use a secure, unique and absolutely secret key for
-# signing the data.
-CSRF_SESSION_KEY = "secret"
 
-# Secret key for signing cookies
-SECRET_KEY = "so secure"
+class ProductionConfig(BaseConfig):
+    DEBUG = False

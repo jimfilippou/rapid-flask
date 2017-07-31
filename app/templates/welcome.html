@@ -1,71 +1,9 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <link rel="stylesheet" href="{{ url_for('static', filename="css/welcome.css") }}">
-    <link rel="stylesheet" href="{{ url_for('static', filename="css/bootstrap.css") }}">
-
-
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
-<nav class="navbar navbar-default" style="position:absolute;z-index: 1;border-radius: 0;width: 100%;background: none;border: none;padding-left: 20px; padding-right: 20px; padding-top: 15px; ">
-    <div class="container-fluid">
-        <div class="navbar-header">
-            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-                <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </button>
-            <a class="navbar-brand" style="color: white;font-family: 'Raleway', sans-serif" href="#">Soundlight</a>
-        </div>
-        <div id="navbar" class="navbar-collapse collapse">
-            <ul class="nav navbar-nav">
-                <li><a id="nav_link" href="#">Home</a></li>
-                <li><a id="nav_link" href="#">About</a></li>
-                <li><a id="nav_link" href="#">Contact</a></li>
-            </ul>
-            <ul class="nav navbar-nav navbar-right">
-                <li><a style="outline-offset: -1px;outline: 1px solid white" id="nav_link" href="#">Watch Video</a></li>
-                {% if session['logged_in'] %}
-                    <li><a id="nav_link" href="{{ url_for('auth.logout') }}">Log out</a></li>
-                    <li class="dropdown">
-                        <a id="nav_link" class="dropdown-toggle" data-toggle="dropdown" href="#">{{ session['user'] }}
-                            <span class="caret"></span></a>
-                        <ul id="pretty_ul" class="dropdown-menu">
-                            <li><a style="color: white;background-color: transparent;font-family: 'Raleway', sans-serif;outline: none" href="#">Settings</a></li>
-                        </ul>
-                    </li>
-                {% else %}
-                    <li><a id="nav_link" href="{{ url_for('auth.authentication') }}">Log in</a></li>
-                    <li><a id="nav_link" href="{{ url_for('auth.authentication') }}?toggle">Sign up</a></li>
-                {% endif %}
-
-            </ul>
-        </div><!--/.nav-collapse -->
-    </div><!--/.container-fluid -->
-</nav>
-<header class="hero">
-
-
-
-</header>
-<div id="header_text" data-aos="fade-right">
-    <h2>Header </h2>
-</div>
-
-
-
-<img id="scroller" src="{{ url_for('static', filename="img/scrolldown.gif") }}">
-
-<footer style="background-color: black">
-    <h5 id="footer_text">&nbsp;&nbsp; YourProject @ 2017</h5>
-</footer>
-
-<script src="{{ url_for('static', filename="js/jquery.js") }}"></script>
-<script src="{{ url_for('static', filename="js/bootstrap.js") }}"></script>
-
-
-</body>
-</html>
+<h1>Welcome to flask</h1>
+<li><a id="nav_link" href="{{ url_for('auth.login') }}">Log in</a></li>
+<li><a id="nav_link" href="{{ url_for('auth.register') }}">Sign up</a></li>
+<br>
+{% if session['user'] %}
+    <label>You are logged in, <a href="{{ url_for('auth.logout') }}">Logout Now</a></label>
+{% else %}
+    <label>You are not logged in, <a href="{{ url_for('auth.login') }}">Login Now</a></label>
+{% endif %}

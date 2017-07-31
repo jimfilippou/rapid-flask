@@ -1,25 +1,30 @@
+""" The database model schema """
 from app import db
 
 
 class Base(db.Model):
 
-    __abstract__  = True
+    """ A base class for every other table to inherit """
 
-    id = db.Column(db.Integer, primary_key=True)
-    date_created = db.Column(db.DateTime,  default=db.func.current_timestamp())
-    date_modified = db.Column(db.DateTime,  default=db.func.current_timestamp(), onupdate=db.func.current_timestamp())
+    __abstract__ = True
+
+    id = db.Column(db.Integer, primary_key=True) #pylint: disable=C0103
+    date_created = db.Column(db.DateTime, default=db.func.current_timestamp())
+    date_modified = db.Column(db.DateTime, default=db.func.current_timestamp(), onupdate=db.func.current_timestamp())
 
 
 class User(Base):
 
+    """ A user class representing User table """
+
     __tablename__ = 'auth_user'
 
     # User Name
-    name = db.Column(db.String(128),  nullable=False)
+    name = db.Column(db.String(128), nullable=False)
 
     # Identification Data: email & password
-    email = db.Column(db.String(128),  nullable=False, unique=True)
-    password = db.Column(db.String,  nullable=False)
+    email = db.Column(db.String(128), nullable=False, unique=True)
+    password = db.Column(db.String, nullable=False)
 
     # Authorisation Data: role & status
     role = db.Column(db.Boolean, nullable=False)
