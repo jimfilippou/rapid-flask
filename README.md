@@ -1,3 +1,6 @@
+ 
+![alt text](https://cdn3.iconfinder.com/data/icons/block/32/vial-512.png "Phyal -> python in a phial")
+
 # flask-boilerplate   
 
 [![Build Status](https://travis-ci.org/jimfilippou/flask-boilerplate.svg?branch=master)](https://travis-ci.org/jimfilippou/flask-boilerplate)
