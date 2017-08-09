@@ -1,7 +1,7 @@
  
 ![alt text](https://vignette2.wikia.nocookie.net/clubpenguin/images/6/61/Magic_Phial.png/revision/latest?cb=20100204184704 "Phyal -> python Phial")
 
-# flask-boilerplate   
+# rapid-flask
 
 [![Build Status](https://travis-ci.org/jimfilippou/flask-boilerplate.svg?branch=master)](https://travis-ci.org/jimfilippou/flask-boilerplate)
 
