@@ -1,4 +1,5 @@
 """ The heart of the flask app """
+
 # Import flask and template operators as long as html Minification and password hashing
 from flask import Flask, render_template
 from flask_bcrypt import Bcrypt
@@ -20,7 +21,7 @@ db = SQLAlchemy(app) #pylint: disable=C0103
 # Define password hashing
 b_crypt = Bcrypt(app) #pylint: disable=C0103
 
-# Make sure the user wont messes up
+# Make sure the user wont mess up
 @app.errorhandler(404)
 def not_found():
     return render_template('404.html'), 404
@@ -33,7 +34,7 @@ app.register_blueprint(authentication_module)
 
 @app.after_request
 def response_minify(response):
-    """ Minify reponses for a slightly faster reponse """
+    """ Minify reponses for a slightly faster reponse after request"""
     if response.content_type == u'text/html; charset=utf-8':
         response.set_data(
             minify(response.get_data(as_text=True))
@@ -42,7 +43,7 @@ def response_minify(response):
     return response
 
 
-# Just an index rule here
+# Just an index rule here, you can add as many as you like.
 @app.route('/')
 def index():
     return render_template('welcome.html')

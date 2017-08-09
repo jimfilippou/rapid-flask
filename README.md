@@ -2,17 +2,22 @@
 
 [![Build Status](https://travis-ci.org/jimfilippou/flask-boilerplate.svg?branch=master)](https://travis-ci.org/jimfilippou/flask-boilerplate)
 
+A boilerplate for **Flask** applications, as simple as possible
 
-I had trouble figuring out complex flask setups so i made this starter-friendly boilerplate to get your project up and running with ease by implementing maintainability and clean code principles. It includes custom logins and registers as well as response minification and modular blueprinted controllers.
+I made this starter-friendly boilerplate to get your project up and running with ease by implementing maintainability and clean code principles. 
  
 
-## Setting it up
+# Setting it up
 
-First after cloning the repo create a virtual environment
+Clone the repository with this command 
+
+`git clone https://github.com/jimfilippou/flask-boilerplate.git`
+
+Cool now after you have cloned the repo lets create a __virtualenv__. Simply use the following line and if you see that it's missing just do this `pip install virtualenv`
 
 `virtualenv env`
 
-Then Activate that environment
+Then Activate that environment (Windows)
 
 `.\env\Scripts\activate`
 
@@ -28,7 +33,11 @@ Run the app
 
 `python manage.py runserver`
 
-## Testing
+Run the app within network  
+
+`python manage.py runserver --host 0.0.0.0`
+
+# Testing
 
 `nosetests`
 
@@ -41,8 +50,17 @@ To lint the app module
 
 `pylint app`
 
-The runcleaner command is a bit special and opinionated. During development i like to have things organized, and compiled python files do not help. I am using Visual studio code and when i run the server i get filled with .pyc files all over the place and that kinda makes me mad. So i made the `python manage.py runcleaner` command to clear the place from .pyc files. BUT in order for it to work change line 28 with your OWN path! otherwise it will not work.
+The runcleaner command is a bit special and **opinionated**. During development i like to have things organized, and compiled python files do not help. I am using Visual studio code and when i run the server i get filled with .pyc files all over the place and that kinda makes me mad. So i made the `python manage.py runcleaner` command to clear the place from .pyc files. BUT in order for it to work change line 28 with your OWN path! otherwise it will not work.
 
 To clean directory
 
 `python manage.py runcleaner`
+
+# What can i do?
+
+The app is splitted into modules, the main module s **app** .
++ You can import blueprints to init.py with just 2 lines, 
++ You can clean up your code with linters
++ You can run tests with no setup
++ You can use some prebuilt tools and buils others
++ You can contribute to this repo, i don't bite

@@ -4,7 +4,7 @@ from flask import session, redirect, url_for, flash
 from app.blueprints.authentication.controller import auth
 
 def login_required(f): #pylint: disable=C0103
-    """ Decorator triggered to identify if logged in """
+    """ Decorator triggered to identify if the user is logged in """
     @wraps(f)
     def wrap(*args, **kwargs):
         """ Wraps args and returns them if the user is logged in """
