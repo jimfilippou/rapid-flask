@@ -62,5 +62,5 @@ The app is splitted into modules, the main module s **app** .
 + You can import blueprints to init.py with just 2 lines, 
 + You can clean up your code with linters
 + You can run tests with no setup
-+ You can use some prebuilt tools and buils others
++ You can use some prebuilt tools and buids some others yourself
 + You can contribute to this repo, i don't bite
