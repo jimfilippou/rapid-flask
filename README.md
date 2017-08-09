@@ -3,7 +3,7 @@
 
 # rapid-flask
 
-[![Build Status](https://travis-ci.org/jimfilippou/flask-boilerplate.svg?branch=master)](https://travis-ci.org/jimfilippou/flask-boilerplate)
+[![Build Status](https://travis-ci.org/jimfilippou/rapid-flask.svg?branch=master)](https://travis-ci.org/jimfilippou/rapid-flask)
 
 A boilerplate for **Flask** applications, as simple as possible
 
