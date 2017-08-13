@@ -4,6 +4,7 @@
 # rapid-flask
 
 [![Build Status](https://travis-ci.org/jimfilippou/rapid-flask.svg?branch=master)](https://travis-ci.org/jimfilippou/rapid-flask)
+[![Dependency Status](https://gemnasium.com/badges/github.com/jimfilippou/rapid-flask.svg)](https://gemnasium.com/github.com/jimfilippou/rapid-flask)
 
 A boilerplate for **Flask** applications, as simple as possible
 
