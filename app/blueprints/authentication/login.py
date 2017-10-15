@@ -1,7 +1,7 @@
 """ The login module, logs the user in """
 from flask import request, session, redirect, url_for, render_template, flash
 from app.models import User
-from app.blueprints.tools.db import is_authenticated, is_registered
+from app.tools.interactions import is_authenticated, is_registered
 from app.blueprints.authentication.controller import auth
 
 @auth.route('/login', methods=['POST', 'GET'])
@@ -9,7 +9,7 @@ def login():
     """
     @get -> Renders the login.html
     @post -> Gets email and password -> Checks if user is registered
-          -> Checks if user is authenticated -> Redirects to index when logged in
+    -> Checks if user is authenticated -> Redirects to index when logged in
     """
     if request.method == 'GET':
         return render_template('auth/login.html')

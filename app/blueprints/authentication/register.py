@@ -2,7 +2,7 @@
 from flask import render_template, redirect, request, session, url_for, flash
 from app import db
 from app.blueprints.authentication.controller import auth
-from app.blueprints.tools.db import is_registered, add_user_to_database
+from app.tools.interactions import is_registered, add_user_to_database
 
 @auth.route('/register', methods=['POST', 'GET'])
 def register():
