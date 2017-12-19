@@ -21,22 +21,19 @@ def is_authenticated(email, password):
     return b_crypt.check_password_hash(User.query.filter_by(email=email).first().password, password)
 
 
-def add_user_to_database(username, password, email, role, status):
+def add_user_to_database(username, password, email):
     """
     Void function just for inserting users to the database
     @params -> username, password, email : string
-            -> role, status : boolean
-    @returns -> absolutely nothing
+    @returns -> the user object, you can use it or not, i don't care
     """
     try:
         user = User(
             name=username,
             password=b_crypt.generate_password_hash(password),
-            email=email,
-            role=role,
-            status=status
+            email=email
         )
         db.session.add(user)
         db.session.commit()
-    except: #pylint: disable=W0702
-        db.session.rollback() # Reverts the database
+    except:
+        db.session.rollback()

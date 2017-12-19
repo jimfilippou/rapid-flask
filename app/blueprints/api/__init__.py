@@ -16,5 +16,5 @@ def hey():
 
 
 
-api.add_url_rule('/login/', view_func=login, methods=['POST'])
+api.add_url_rule('/login', view_func=login, methods=['POST'])
 

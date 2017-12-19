@@ -42,9 +42,15 @@ Run the app within network
 
 `python manage.py runserver --host 0.0.0.0`
 
+# Debugging in vscode
+
+There is a folder .vscode in this project, so you only go straight to debugging. No configurations needed, just go to the debug toolbar and run the debugger. 
+
 # Testing
 
 `nosetests`
+
+NOTE: The tests are only working on Windows, so the build badge will be failing until i fix it.
 
 # What can i do?
 

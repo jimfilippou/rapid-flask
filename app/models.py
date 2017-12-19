@@ -1,5 +1,5 @@
 """ The database model schema """
-from app import db
+from app import db, b_crypt
 
 
 class Base(db.Model):
@@ -26,18 +26,13 @@ class User(Base):
     email = db.Column(db.String(128), nullable=False, unique=True)
     password = db.Column(db.String, nullable=False)
 
-    # Authorisation Data: role & status
-    role = db.Column(db.Boolean, nullable=False)
-    status = db.Column(db.Boolean, nullable=False)
 
     # New instance instantiation procedure
-    def __init__(self, name, email, password, role, status):
-
+    def __init__(self, name, email, password):
         self.name = name
         self.email = email
-        self.password = password
-        self.role = role
-        self.status = status
+        self.password = b_crypt.generate_password_hash(password)
+
 
     def __repr__(self):
         return '<User %r>' % self.name
@@ -46,8 +41,5 @@ class User(Base):
     def serialize(self):
         return dict(
             name     = self.name,
-            email    = self.password,
-            password = self.password,
-            rol      = self.role,
-            status   = self.status
+            email    = self.password
         )

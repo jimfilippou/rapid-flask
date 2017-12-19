@@ -1,6 +1,8 @@
+""" Sample testing """
+
 from flask_testing import TestCase
 
-from app import app, db
+from app import app, db, b_crypt
 from app.models import User
 
 
@@ -13,7 +15,11 @@ class BaseTestCase(TestCase):
 
     def setUp(self):
         db.create_all()
-        db.session.add(User("Bucky", "bucky@thenewboston.com", "12345", True, True))
+
+        user = User("Rick Grimmes", "rickgrimmes@amc.com", "michowned69")
+
+        db.session.add(user)
+
         db.session.commit()
 
     def tearDown(self):
