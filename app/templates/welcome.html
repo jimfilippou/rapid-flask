@@ -1,9 +1,0 @@
-<h1>Welcome to flask</h1>
-<li><a id="nav_link" href="{{ url_for('auth.login') }}">Log in</a></li>
-<li><a id="nav_link" href="{{ url_for('auth.register') }}">Sign up</a></li>
-<br>
-{% if session['user'] %}
-    <label>You are logged in, <a href="{{ url_for('auth.logout') }}">Logout Now</a></label>
-{% else %}
-    <label>You are not logged in, <a href="{{ url_for('auth.login') }}">Login Now</a></label>
-{% endif %}

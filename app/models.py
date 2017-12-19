@@ -8,7 +8,7 @@ class Base(db.Model):
 
     __abstract__ = True
 
-    id = db.Column(db.Integer, primary_key=True) #pylint: disable=C0103
+    id = db.Column(db.Integer, primary_key=True)
     date_created = db.Column(db.DateTime, default=db.func.current_timestamp())
     date_modified = db.Column(db.DateTime, default=db.func.current_timestamp(), onupdate=db.func.current_timestamp())
 
@@ -41,3 +41,13 @@ class User(Base):
 
     def __repr__(self):
         return '<User %r>' % self.name
+
+    @property
+    def serialize(self):
+        return dict(
+            name     = self.name,
+            email    = self.password,
+            password = self.password,
+            rol      = self.role,
+            status   = self.status
+        )

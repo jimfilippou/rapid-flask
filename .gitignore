@@ -1,4 +1,4 @@
 *.pyc
-.vscode
-env/*
-migrations/*
+env/
+migrations/
+app.db
