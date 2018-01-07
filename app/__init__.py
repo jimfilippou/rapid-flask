@@ -19,9 +19,12 @@ db = SQLAlchemy(app)
 b_crypt = Bcrypt(app)
 
 # Make sure the user will not mess up
+
+
 @app.errorhandler(404)
 def not_found(err):
     return jsonify(message=str(err)), 404
+
 
 # Import a module / component using its blueprint handler variable
 from app.blueprints.api import api as api_module

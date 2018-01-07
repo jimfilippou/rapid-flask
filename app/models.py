@@ -10,7 +10,8 @@ class Base(db.Model):
 
     id = db.Column(db.Integer, primary_key=True)
     date_created = db.Column(db.DateTime, default=db.func.current_timestamp())
-    date_modified = db.Column(db.DateTime, default=db.func.current_timestamp(), onupdate=db.func.current_timestamp())
+    date_modified = db.Column(db.DateTime, default=db.func.current_timestamp(
+    ), onupdate=db.func.current_timestamp())
 
 
 class User(Base):
@@ -26,13 +27,11 @@ class User(Base):
     email = db.Column(db.String(128), nullable=False, unique=True)
     password = db.Column(db.String, nullable=False)
 
-
     # New instance instantiation procedure
     def __init__(self, name, email, password):
         self.name = name
         self.email = email
         self.password = b_crypt.generate_password_hash(password)
-
 
     def __repr__(self):
         return '<User %r>' % self.name
@@ -40,6 +39,6 @@ class User(Base):
     @property
     def serialize(self):
         return dict(
-            name     = self.name,
-            email    = self.password
+            name=self.name,
+            email=self.password
         )
