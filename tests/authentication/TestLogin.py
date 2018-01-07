@@ -20,9 +20,14 @@ class FlaskTestCase(BaseTestCase):
                 }
             )
             self.assertEqual(response.status_code, 200)
-            # Works only on windows
-            with open("%s\\tests\\store\\token.dat" % os.getcwd(), 'w') as token_file:
-                token_file.write(response.json["token"])
+            # Detect os
+            if os.name == "nt":
+                with open("%s\\tests\\store\\token.dat" % os.getcwd(), 'w') as token_file:
+                    token_file.write(response.json["token"])
+            else:
+                with open("%s/tests/store/token.dat" % os.getcwd(), 'w') as token_file:
+                    token_file.write(response.json["token"])
+            
 
     def test_should_not_find_user(self):
         """

@@ -15,11 +15,8 @@ class BaseTestCase(TestCase):
 
     def setUp(self):
         db.create_all()
-
         user = User("Rick Grimmes", "rickgrimmes@amc.com", "michowned69")
-
         db.session.add(user)
-
         db.session.commit()
 
     def tearDown(self):

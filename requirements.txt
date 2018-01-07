@@ -18,5 +18,5 @@ PyJWT==1.5.3
 python-dateutil==2.6.1
 python-editor==1.0.3
 six==1.11.0
-SQLAlchemy==1.1.15
-Werkzeug==0.13
+SQLAlchemy==1.2.0
+Werkzeug==0.14.1

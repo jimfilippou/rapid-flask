@@ -50,11 +50,10 @@ There is a folder .vscode in this project, so you only go straight to debugging.
 
 `nosetests`
 
-NOTE: The tests are only working on Windows, so the build badge will be failing until i fix it.
 
 # What can i do?
 
-The app is splitted into modules, the main module s **app** .
+The app is splitted into modules, the main module is **app** .
 + You can import blueprints easily 
 + You can run tests with no setup
 + You can use some prebuilt tools and buids some others yourself
