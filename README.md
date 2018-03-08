@@ -1,11 +1,15 @@
 # rapid-flask
 
+<div align="center">
+
 ![alt text](http://frozenvortex.com/rapid-flask/rapid.png "vscoderocks")
 
 
 
 [![Build Status](https://travis-ci.org/jimfilippou/rapid-flask.svg?branch=master)](https://travis-ci.org/jimfilippou/rapid-flask)
 [![Dependency Status](https://gemnasium.com/badges/github.com/jimfilippou/rapid-flask.svg)](https://gemnasium.com/github.com/jimfilippou/rapid-flask)
+
+</div>
 
 A boilerplate for **Flask** applications, as minimal as possible
 
