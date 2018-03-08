@@ -1,4 +1,3 @@
-# rapid-flask
 
 <div align="center">
 
@@ -10,8 +9,9 @@
 [![Dependency Status](https://gemnasium.com/badges/github.com/jimfilippou/rapid-flask.svg)](https://gemnasium.com/github.com/jimfilippou/rapid-flask)
 
 </div>
+<br><br>
 
-A boilerplate for **Flask** applications, as minimal as possible
+**Rapid Flask** is a boilerplate for **Flask** applications, as minimal as possible
 
 This starter-friendly boilerplate's aim is to get your project up and running with ease by implementing maintainability and clean code principles. 
 
