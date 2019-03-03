@@ -1,4 +1,4 @@
-alembic==0.9.8
+alembic==0.9.10
 bcrypt==3.1.4
 cffi==1.11.5
 click==6.7
